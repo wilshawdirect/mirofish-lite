@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mirofish-lite"
+version = "0.1.0"
+description = "A tiny, dependency-free multi-persona veto board: N small LLM personas vote YES/NO/ABSTAIN on a proposal and a quorum decides. Advisory, fail-closed, with an append-only ledger. Not affiliated with, derived from, or endorsed by the MiroFish project (github.com/666ghj/MiroFish)."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "ADZ" }]
+keywords = ["llm", "guardrail", "ensemble", "voting", "quorum", "agents", "human-in-the-loop"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Software Development :: Libraries",
+  "Typing :: Typed",
+]
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+dev = ["pytest>=7", "ruff>=0.15,<0.16"]
+
+[project.scripts]
+mirofish-lite = "mirofish_lite.cli:main"
+
+[tool.setuptools]
+packages = ["mirofish_lite"]
+
+[tool.setuptools.package-data]
+mirofish_lite = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+filterwarnings = ["error"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.format]
+line-ending = "lf"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E501"]  # long prompt and help strings; the formatter handles code
