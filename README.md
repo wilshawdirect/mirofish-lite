@@ -367,6 +367,12 @@ ruff check . && ruff format --check .
 CI runs the linter, the format check and the tests on Python 3.11 and 3.12, on Linux and Windows. See
 [CHANGELOG.md](CHANGELOG.md) and [ROADMAP.md](ROADMAP.md).
 
+## Weekly council report
+
+`templates/weekly_council_report.md` is a fill-in template for a once-a-week review of the board's decisions: the tally,
+the vetoes worth reading (quoted dissent), approvals that turned out badly, per-persona health and ledger integrity.
+Every figure is meant to come from the JSONL ledger; the template carries placeholders only, no sample numbers.
+
 ## License
 
 MIT. Copyright (c) 2026 ADZ.
